@@ -17,7 +17,8 @@ The project contains the following directories:
 A REPORT.md file is also included for documenting the project.
 
 
-Feature 2 implements a multi-file C project with automated compilation using a Makefile. The project separates string functions, file functions, and the main program into different source and header files.
+## Feature 2 implements a multi-file C project with automated compilation using a Makefile.
+The project separates string functions, file functions, and the main program into different source and header files.
 
 The Makefile compiles the source files into object files and links them together to generate the final executable:
 
