@@ -1,0 +1,5 @@
+Linux is an operating system.
+Linux is widely used for servers.
+C programming is powerful.
+Make is used to build programs.
+Linux supports many programming tools.
