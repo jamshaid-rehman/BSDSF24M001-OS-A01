@@ -63,3 +63,16 @@ This demonstrates the defining characteristic of static linking: the linker copi
 
 client_static doesn't need libmyutils.a to be present anywhere when you run it later, and
 the executable is larger than a dynamically-linked equivalent, since it physically contains that code rather than just a reference to it.
+
+## Feature 4 
+1. What is -fPIC and why is it needed for shared libraries?
+
+-fPIC generates code that uses relative addressing instead of fixed memory addresses. Shared libraries need this because one physical copy in memory is mapped into many different processes, each with a different address space — so the code must work correctly no matter where it's loaded.
+
+2. Why is client_static bigger than client_dynamic?
+
+client_static has the library's actual machine code copied directly into it at link time. client_dynamic only has small references to functions — the real code stays in the separate .so file and is loaded at runtime, so the executable is smaller.
+
+3. What is LD_LIBRARY_PATH and why was it needed?
+
+It tells the dynamic loader extra directories to search for .so files at runtime. It was needed because libmyutils.so is in your project's lib/ folder, not a standard system path, so the loader couldn't find it without being told. This shows that with dynamic linking, resolving the library happens at program startup by the OS loader, not at compile/link time.
