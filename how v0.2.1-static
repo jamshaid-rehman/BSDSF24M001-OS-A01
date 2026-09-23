@@ -1,0 +1,62 @@
+[33mtag v0.2.1-static[m
+Tagger: Muhammad Jamshaid Rehman <jamshaidrehman374@gmail.com>
+Date:   Wed Sep 23 08:04:32 2026 +0500
+
+Version 0.2.1 - Static Library Build
+
+[33mcommit 20807d40ea783120f4ee675d2a770957e25922bf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mstatic-build[m[33m, [m[1;33mtag: [m[1;33mv0.2.1-static[m[33m, [m[1;31morigin/static-build[m[33m)[m
+Author: Muhammad Jamshaid Rehman <jamshaidrehman374@gmail.com>
+Date:   Wed Sep 23 08:02:55 2026 +0500
+
+    Complete static library build
+
+[1mdiff --git a/Makefile b/Makefile[m
+[1mindex 5c44546..503a27f 100644[m
+[1m--- a/Makefile[m
+[1m+++ b/Makefile[m
+[36m@@ -47,44 +47,4 @@[m [mrun: $(TARGET)[m
+ rebuild: clean all[m
+ [m
+ [m
+[31m-.PHONY: all clean run rebuildCC = gcc[m
+[31m-CFLAGS = -Wall -Wextra -std=c11 -D_POSIX_C_SOURCE=200809L[m
+[31m-[m
+[31m-TARGET = bin/client[m
+[31m-[m
+[31m-SRC_DIR = src[m
+[31m-OBJ_DIR = obj[m
+[31m-[m
+[31m-SOURCES = $(SRC_DIR)/mystrfunctions.c \[m
+[31m-          $(SRC_DIR)/myfilefunctions.c \[m
+[31m-          $(SRC_DIR)/main.c[m
+[31m-[m
+[31m-OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)[m
+[31m-[m
+[31m-[m
+[31m-all: $(TARGET)[m
+[31m-[m
+[31m-[m
+[31m-$(TARGET): $(OBJECTS)[m
+[31m-	@mkdir -p $(dir $@)[m
+[31m-	$(CC) $(CFLAGS) $(OBJECTS) -o $(TARGET)[m
+[31m-[m
+[31m-[m
+[31m-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c[m
+[31m-	@mkdir -p $(OBJ_DIR)[m
+[31m-	$(CC) $(CFLAGS) -c $< -o $@[m
+[31m-[m
+[31m-[m
+[31m-clean:[m
+[31m-	rm -rf $(OBJ_DIR) $(TARGET)[m
+[31m-[m
+[31m-[m
+[31m-run: $(TARGET)[m
+[31m-	./$(TARGET)[m
+[31m-[m
+[31m-[m
+[31m-rebuild: clean all[m
+[31m-[m
+[31m-[m
+[31m-.PHONY: all clean run rebuildO[m
+[31m-[m
+[32m+[m[32m.PHONY: all clean run rebuild[m
