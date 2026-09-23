@@ -27,8 +27,8 @@ bin/client
 A Git branch named multifile-build is used to develop the feature. After successful testing, the changes are committed and an annotated Git tag is created to identify the completed version.
 
 Finally, a GitHub Release is created for this version, with the compiled client executable attached as a binary so that the program can be downloaded and used without recompiling the source code.
-
-## Feature 3 
+ 
+## Feature 3  implements static library
 Key differences:
 
 New archiving step: the utility object files are first bundled into libmyutils.a using ar, rather than being linked in directly.
@@ -64,7 +64,7 @@ This demonstrates the defining characteristic of static linking: the linker copi
 client_static doesn't need libmyutils.a to be present anywhere when you run it later, and
 the executable is larger than a dynamically-linked equivalent, since it physically contains that code rather than just a reference to it.
 
-## Feature 4 
+## Feature 4 implements dynamic library
 1. What is -fPIC and why is it needed for shared libraries?
 
 -fPIC generates code that uses relative addressing instead of fixed memory addresses. Shared libraries need this because one physical copy in memory is mapped into many different processes, each with a different address space — so the code must work correctly no matter where it's loaded.
